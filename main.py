@@ -29,6 +29,7 @@ def find_mismatch(text):
 
 def main():
     text = input()
+    
     if text == "I":
         text = input()
         mismatch = find_mismatch(text)
@@ -41,7 +42,8 @@ def main():
     elif text == "F":
         j = 0
         while j < 6:
-            with open('test/'+str(j)) as f:
+            fails = input()
+            with open(fails) as f:
                 text = f.readline()
             mismatch = find_mismatch(text)
 
