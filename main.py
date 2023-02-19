@@ -19,7 +19,7 @@ def find_mismatch(text):
 
         if next in ")]}":
             if not bool(opening_brackets_stack) or not are_matching(opening_brackets_stack.pop(),next):
-                return(i)
+                return(i+1)
             # Process closing bracket, write your code here
             # opening_brackets_stack.pop()
             pass
@@ -28,14 +28,30 @@ def find_mismatch(text):
 
 
 def main():
-    print("input text: ")
     text = input()
-    mismatch = find_mismatch(text)
+    if text == "I":
+        text = input()
+        mismatch = find_mismatch(text)
 
-    if mismatch is None:
-        print("Success")
+        if mismatch is None:
+            print("Success")
+        else:
+            print(mismatch)
+
+    elif text == "F":
+        j = 0
+        while j < 6:
+            with open('test/'+str(j)) as f:
+                text = f.readline()
+            mismatch = find_mismatch(text)
+
+            if mismatch is None:
+                print("Success")
+            else:
+                print(mismatch)
+            j = j+1
     else:
-        print(mismatch)
+        print("unknown command")
     # Printing answer, write your code here
 
 
